@@ -1,0 +1,200 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Neonderthaw&display=swap');
+
+
+
+
+
+#Page1  .homePageBackground{
+  /* sizing*/
+  width:100vw;
+  height:100vh;
+
+
+  /*  flexbox*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://wallpaperaccess.com/full/7256199.jpg);
+  /* background-position: skewX(20deg); */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#Page1  .rectangle {
+
+ 
+  border-radius: 25px;
+
+  padding: 20px;
+  width: 425px;
+  height: 225px;
+
+  
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align: center;
+  
+
+ 
+  }
+
+
+  
+
+  #Page1  .search-Bar {
+
+    padding: 25px;
+    margin: 0 auto;
+    display: block;
+    
+
+  }
+
+  #Page1  .Photo-Credit {
+
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-weight: bolder;
+    text-shadow: #000 0px 0px 1px;
+    color: white;
+   
+    padding: 10px 30px;
+    border-radius: 5px;
+    
+  
+  }
+
+  #Page1  .searchTitle {
+
+    font-weight: bolder;
+    
+  }
+  
+
+  #Page1 .headerDefault{
+
+    padding: 30px;
+    text-align: center;
+    background: grey;
+    color: black;
+    font-size: 20px;
+    font-family: 'Alfa Slab One', cursive;
+    border-radius: 25px;
+  
+  }
+
+ 
+  
+/* 
+  .toggleFilters{
+     display: flex;
+    justify-content: center;
+    writing-mode: vertical-lr;
+    text-orientation: upright; 
+    
+   
+    
+  } */
+
+  .sideways{
+   
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+ 
+  text-align: center;
+  font-size: 28px;
+  
+  /* transition: all 0.5s; */
+  cursor: pointer;
+ 
+  transform:rotate(90deg);
+  -webkit-transform:rotate(90deg);
+
+      
+    }  
+
+  
+
+ 
+
+ /*https://www.w3schools.com/howto/howto_css_custom_checkbox.asp GOT THE CODE FROM HERE TO MAKE IT LOOK A LITTLE BIT NICER*/
+
+  #Page1 .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  #Page1  .buttonMovieFilters {
+    right: 0;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+  }
+
+  #Page1 .movieInfo{
+    margin: 10px;
+    background-color: gray;
+    height: 100px;
+  }
+  
+  #Page1  .movieGrid{
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+    padding:20px
+  }
+  
+  #Page1  .movieTitle{
+    padding-top: 3%;
+    flex: 2;
+    
+  }
+  #Page1 .movieDate{
+    padding-top: 3%;
+    flex: 3;
+    
+  }
+  #Page1 .movieRating{
+    padding-top: 3%;
+    flex: 2;
+   
+  }
+  
+  #Page1 .viewButton{
+    padding-top: 3%;
+    text-align: center;
+    flex: 1;
+  
+  }
+
+  a:link {   color: white;   background-color: transparent;   text-decoration: none; }
+
+
+  @media screen and (max-wifth:425px){
+    
+  }

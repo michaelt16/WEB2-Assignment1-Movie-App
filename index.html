@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Website</title>
+  <script src="movie-details.json"></script>
+ 
+
+  <script src="movie-data.json"></script>
+  
+  <link rel="stylesheet" href="design.css">
+  <link rel="stylesheet" href="default.css">
+
+<script src="movieHelpers.js"></script>
+  <link href="//db.onlinewebfonts.com/c/5116a4d958b55b9c7872c9af3b076af1?family=Brandon+Grotesque+Medium" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Proxima+Nova');
+  </style>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <script src="hidden.js"></script>
+  
+ 
+  
+ 
+  <script src="detailsEvents.js"></script>
+  <script src="defaultViewEvents.js"></script>
+  
+  <script src="defaultEvents.js"></script>
+  <script src="tabs.js"></script>
+  <script src="sort.js"></script>
+  <script src = "favouriteMovie.js"></script>
+  <script src="filter.js"></script>
+ 
+  <script src="homeViewEvents.js"></script>
+
+
+<body>
+  <div id="Page1">
+    
+   
+    <section class="homePageBackground">
+      <div class="rectangle">
+
+        <div class="header">
+
+          <h2>Movies Browser</h2>
+
+        </div>
+
+        <div class="items">
+
+          <div class="search-Bar">
+
+            <form>
+
+              <label class="searchTitle"> Title: </label>
+
+              <input id="homeViewSearch" type="text">
+
+            </form>
+
+          </div>
+
+        </div>
+
+        <div class="button" id="homeViewButtons">
+
+          <button id="searchButton"> Show Matching Movies</button>
+          <button id="showFavButton">Show Favorites</button>
+
+        </div>
+
+
+
+      </div>
+    </section>
+
+
+
+
+    <div class="Photo-Credit">
+
+      Credits to <a href="https://wallpaperaccess.com/pop-corn"> <u>Wallpaper Access</u> </a>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <div id="Page2" style="display:none">
+    <button id="goToThirdPage" style="display: none;"></button>
+    <div class ="container" >
+     
+
+
+     <div class ="leftside" >
+      <div class="side">
+        
+
+          <div class ="text">
+            <!-- <hr> -->
+              <h1>Movie Filters</h1>
+          </div> 
+
+              <!-- this the title filter -->
+            
+              <div class ="titlefilter">
+                <h2>Title</h2>
+              <input type="search" placeholder="Search For A Movie.." id="movieFilterSearch">
+          </div>   
+
+              
+
+
+              <!--this the year filter  -->
+
+      <div class = "yearfilter">
+
+                  <h2>Year</h2>
+
+        <label >Before
+        
+        </label>
+
+        <div>
+          <input type="text" placeholder="Search By Year" id="beforeSearch">
+        </div>
+
+        <label>After
+         
+        </label>
+
+        <div >
+          <input type="text" placeholder="Search By Year" id="afterSearch">
+        </div>
+
+        <label >Between
+       
+        </label>
+        <div >
+          <input type="text" placeholder="Search By Year" id="betweenSearch1">
+        </div>
+        <div >
+          <input type="text" placeholder="Search By Year" id="betweenSearch2">
+        </div>
+
+
+      </div>
+
+
+
+      <div class ="ratingfilter">
+
+          <h2>Rating</h2>
+
+          <div >Below
+            
+            <div class="slidecontainer">
+              <!-- <input type="range" id="belowRange" min="0" max="10" value="0" class="slider"><span id="demo"> 0</span> -->
+           
+           
+          <input type="number" placeholder="0" id="belowRange"  min="1" max="10">
+            </div>
+     
+          </div>
+
+
+          <div>Above
+          
+            <div class="slidecontainer">
+              <!-- <input type="range" id="aboveRange" min="0" max="10" value="0" class="slider"><span id="demo2"> 0</span> -->
+              <input type="number" placeholder="0" id="aboveRange"  min="1" max="10">
+            </div>
+            
+          </div>
+
+          <div >Between
+            
+            <div class="slidecontainer">
+              <!-- <input type="range" id="betweenRange1" min="0" max="10" value="0" class="slider"><span id="demo3"> 0</span> -->
+              <input type="number" placeholder="0" id="betweenRange1" min="1" max="10">
+            
+            </div>
+            <div class="slidecontainer">
+              <input type="number" placeholder="0" id="betweenRange2" min="1" max="10">
+            
+              <!-- <input type="range" id="betweenRange2" min="0" max="10" value="0" class="slider"><span id="demo4"> 0</span> -->
+            </div>
+          
+
+
+
+      </div>
+
+
+</div>
+
+<div class="buttonMovieFilters">
+  <button type="button" value="reset" id="filterButton">Filter </button>
+  <button id="clearButton">Clear</button>
+</div>
+
+</div>
+
+</div> 
+
+
+
+     
+      <div class="rightside">
+          
+          <div class ="top">
+           <div class="righttitle" >
+            <h1 class = "rightH1">Favorited Movies</h1>  
+           </div>   
+          
+          <div>
+              <i class="fa fa-home" style="font-size:36px;"></i>
+          </div>
+
+
+          <div class ="sort-button">
+            <button id ="sort-button" > Sort By <i class= "	fa fa-caret-down"></i> </button>
+
+            <div class ="content-sort" style="display:none" >
+              
+              <p class ="sort-title">Title: A-Z</p>
+              <p class ="sort-title-reversed">Title: Z-A</p>
+              <p class = "sort-rating">Ratings: High to Low</p>
+              <p class = "sort-rating-reversed">Ratings: Low to High</p>
+              <p class = "sort-year">Year: High to Low</p>
+              <p class = "sort-year-reversed">Year: Low to High</p>
+  
+  
+            </div>
+
+          </div>
+         
+         
+      </div>
+        <div id ="populate" >
+         
+
+           
+  
+             
+  
+          
+
+      
+      
+</div>
+
+
+         
+
+
+
+  </div>
+  
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div id="Page3" style="display:none">
+
+    <div class="grid-container">
+      <div class="grid1" id="detailHeader">
+        <h1>COMP 3512 Assignment 1</h1>
+
+      </div>
+
+      <div class="bottom-container">
+
+        <a href="#" class="previous" id="returnButtonDetails"> &#8249;return&#8250;</a>
+
+
+
+        <div class="grid2">
+          <div class="title-grid">
+            <div class="size">
+              <h1 id="title-text">Apocalypse Now</h1>
+            </div>
+            <div class="speak-pos">
+              <button class="speak-button" id="volumeIcon">
+
+                <i class="fa fa-volume-up"></i>
+              </button>
+            </div>
+            <div class="movie-stats">
+
+
+              <div class="speechbubble">
+
+                <div class="inner-container">
+                  <div class="ptag">
+                    <h3>General Stats</h3>
+                    <p id ="release-date">Release Date : 1979-08-15</p>
+                    <p id ="revenue">Revenue : $ 150,000,000</p>
+                    <p id ="budget">Budget : $ 31,500,000</p>
+                    <p id ="runtime">Runtime : 2 hours 27 minutes </p>
+                    <p id ="tagline">Tagline : "This is the end...</p><br><br>
+                    <h3 >Ratings </h3>
+                    <p id ="popularity">Popularity: 36</p>
+                    <P id ="average">Average: 8.3</P>
+                    <p id ="vote-count">Vote Count: 6299</p>
+
+                  </div>
+
+
+                  <picture class="image">
+
+                    <source id= "image-link1" srcset="https://ualr.edu/elearning/files/2020/10/No-Photo-Available.jpg"
+                      media="(min-width: 425px)">
+                    <img  id= "image-link2" src="https://ualr.edu/elearning/files/2020/10/No-Photo-Available.jpg" alt="Image">
+
+                  </picture>
+
+
+                </div>
+
+              </div>
+
+
+
+
+
+
+
+
+              <div class="speechbubble">
+                <br>
+
+                Overview: <br> 
+                  <p id="overview">
+                  </p>
+              </div>
+              <br>
+
+              <div class="speechbubble">
+                <p> Links: </p><br>
+
+                <a id="IMDB" class="links" href="#"> IMDB </a> <br>
+                <a id="TMDB" class="links" href="#">TMDB</a>
+              </div>
+            </div>
+            <br>
+
+          </div>
+
+
+        </div>
+
+        <div class="grid4">
+          <div class="boxes">
+            <div class="speechbubble">
+              <div>
+                <p class="companies">
+                  Production Companies<br><br>
+                </p>
+
+                  <p id="production-company">
+                      N/A
+
+                  </p>
+                  
+                  
+              </div>
+            </div>
+
+
+            <div class="speechbubble">
+              <p class="countries">
+                Production Countries<br><br>
+              </p>
+
+              <p id="production-countries">
+                N/A
+
+              </p>
+            </div>
+            <div class="speechbubble">
+              <p class="keywords">
+                Keywords<br><br>
+              </p>
+              <p id = "keywords-bubble">
+
+                N/A
+              </p>
+            </div>
+            <div class="speechbubble">
+              <p class="genres">
+                Genres<br><br>
+              </p>
+
+              <p id="genre-bubble">
+                N/A
+
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="grid3">
+
+
+
+
+          <!-- <div class="tab"> -->
+
+
+            <!-- https://www.w3schools.com/howto/howto_js_tabs.asp -->
+            <!-- Tab links -->
+            <!-- <div class="tab">
+              <button class="tablinks" onclick="openCity(event, 'Cast')">Cast</button>
+              <button class="tablinks" onclick="openCity(event, 'Crew')">Crew</button>
+
+            </div> -->
+
+            <div class ="tab">
+              <div class = "tablinks">
+                <button id = "castTab" > Cast</button>
+                <button id = "crewTab"> Crew</button>
+
+
+
+              </div>
+
+            </div>
+
+            <!-- Tab content -->
+            <div id="Cast" class="tabcontent" >
+              <div class="speechbubble">
+                <div class="cast-head">
+                  <p>Character</p>
+                  <p>Name</p>
+                </div>
+
+                <div class="cast-grid">
+                  
+
+                  <!-- <p>Colonel Walter E. Kurtz</p>
+                  <p>Marlon Brando</p>
+
+                  <p>Lieutenant Colonel Bill Kilgore</p>
+                  <p>Robert Duvall</p>
+
+                  <p>Captain Benjamin L. Willard</p>
+                  <p>Martin Sheen</p>
+
+                  <p>Jay 'Chef' Hicks</p>
+                  <p>Frederic Forrest</p>
+
+                  <p>Tyrone 'Clean' Miller</p>
+                  <p>Laurence Fishburne</p>
+
+                  <p>Chief Phillips</p>
+                  <p>Albert Hall</p>
+
+                  <p>Lance B. Johnson</p>
+                  <p>Sam Bottoms</p>
+
+                  <p>Photojournalist</p>
+                  <p>Dennis Hopper</p>
+
+                  <p>General Corman</p>
+                  <p>G. D. Spradlin</p>
+
+                  <p>Colonel Lucas</p>
+                  <p>Harrison Ford</p>
+
+                  <p>Jerry, Civilian</p>
+                  <p>Jerry Ziesmer</p>
+
+                  <p>Lieutenant Richard M. Colby</p>
+                  <p>Scott Glenn</p>
+
+                  <p>Kilgore's Gunner</p>
+                  <p>James Keane</p>
+
+                  <p>Mike from San Diego</p>
+                  <p>Kerry Rossall</p>
+
+
+                  <p>Supply Sergeant</p>
+                  <p>Tom Mason</p>
+
+                  <p>Playmate of the Year/p>
+                  <p>Cynthia Wood</p>
+
+                  <p>Miss May</p>
+                  <p>Colleen Camp</p>
+
+                  <p>Playmate</p>
+                  <p>Linda Carpenter</p>
+
+                  <p>Roxanne Sarrault</p>
+                  <p>Aurore Clément</p>
+
+                  <p>Soldier in Trench</p>
+                  <p>Jack Thibeau</p> -->
+
+
+
+
+                </div>
+              </div>
+            </div>
+
+
+            <div id="Crew" style="display:none" class="tabcontent"  >
+              <div class="speechbubble">
+
+
+
+
+                <div class="crew-head">
+                  <p>Department</p>
+                  <p>Job</p>
+                  <p>Name</p>
+                </div>
+
+                <div class="crew-grid">
+
+
+
+
+                  <!-- <p>Camera</p>
+                  <p>Director of Photography</p>
+                  <p>Camera</p>
+
+                  <p>Directing</p>
+                  <p>Director</p>
+                  <p>Francis Ford Coppola </p>
+
+                  <p>Editing</p>
+                  <p>Editor</p>
+                  <p>Gerald B. Greenberg </p>
+
+                  <p>Editing</p>
+                  <p>Editor</p>
+                  <p>Lisa Fruchtman</p>
+
+                  <p>Editing</p>
+                  <p>Editor</p>
+                  <p>Walter Murch </p>
+
+
+
+                  <p>Production</p>
+                  <p>Associate Producer</p>
+                  <p>Eddie Romero</p>
+
+                  <p>Production</p>
+                  <p>Producer</p>
+                  <p>Fancis Ford Coppola</p>
+
+                  <p>Production</p>
+                  <p>Co-Producer</p>
+                  <p>Fred Roos</p>
+
+                  <p>Production</p>
+                  <p>Co-Producer</p>
+                  <p>Gray Frederickson</p>
+
+                  <p>Production</p>
+                  <p>Associate Producer</p>
+                  <p>John Ashely</p>
+
+                  <p>Production</p>
+                  <p>Associate Producer</p>
+                  <p>Mona Skager</p>
+
+                  <p>Production</p>
+                  <p>Co-Producer</p>
+                  <p>Tom Sternberg</p>
+
+
+                  <p>Production</p>
+                  <p>Casting</p>
+                  <p>Terry Liebling</p>
+
+                  <p>Production</p>
+                  <p>Casting</p>
+                  <p>Vic Ramos</p>
+
+
+
+                  <p>Sound</p>
+                  <p>Original Music Composer</p>
+                  <p>Carmine Coppola</p>
+
+                  <p>Sound</p>
+                  <p>Original Music Composer</p>
+                  <p>Francis Ford Coppola</p>
+
+                  <p>Sound</p>
+                  <p>Sound Designer </p>
+                  <p>Walter Murch</p>
+
+                  <p>Writing</p>
+                  <p>Writer </p>
+                  <p>Francis Ford Coppola</p>
+
+                  <p>Writing</p>
+                  <p>Writer </p>
+                  <p>John Millius</p> -->
+
+
+
+                </div>
+
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+    </div>
+ 
+  
+  <script src="populateFavourites.js"></script>
+  <script src="apitest.js"></script>
+</body>
+
+</html>
